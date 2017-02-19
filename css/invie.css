@@ -1,43 +1,28 @@
-/*tipo de selector {
-  propiedad: valor;
-  propiedad -2:valor;
-}*/
-/*selector universal*/
-*{
-  border: 1px solid red;
-  margin: 10px;
+.titulo{
+font-size: 70px;
 }
-/*selector de etiqueta*/
-header{
-  background: blue;
-}
-
-section{
-  background: purple;
-}
-/*selector desendente*/
-
-article h3{
-  color: green;
-}
-/*selectores de clase */
 
 .title-a{
-  background: yellow;
-}
-.title-b{
-  background: salmon;
+  font-size: 24px;
+
 }
 
-/*selector de id*/
-
-#header{
-  border: 3px solid black;
+.title-b {
+  font-size: 50px;
 }
-#portada{
-  border: 3px solid orange;
+.guitarras{
+  color: #1F313C;
+}
+.guitarras h2{
+  font-size: 35px;
+
+
+}
+.portada{
+  background-image: url('../images/background.png');
+  color:white;
 }
 
-#guitarras{
-  border: 3px solid brown;
+.menu {
+  font-size: 24px;
 }
