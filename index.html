@@ -12,7 +12,7 @@
     <section id="portada" class="portada background">    <!-- portada -->
       <header id="header" class="header contenedor">      <!-- header -->
       <figure class="logotipo"><!-- logotipo -->
-        <img src="images/invie.png" width="186" height="60" alt="Invie logotipo"/>
+        <img src="images/invie.png" srcset="images/invie.png 1x, images/invie2x.png 2x"  width="186" height="60" alt="Invie logotipo"/>
       </figure>
       <span class="burguer-buttom icon-menu " id="burguer-buttom" ></span>
       </menu>
@@ -38,8 +38,11 @@
     </section>
     <section id="guitarras"  class="guitarras contenedor">  <!-- guitarras -->
       <h2>Nuestras Guitarras</h2><!-- titulo -->
+      <div class="video-responsive-contenedor">
+        <iframe class="video-responsive-src" width="560" height="315" src="https://www.youtube.com/embed/R1dW8M4EqYY" frameborder="0" allowfullscreen></iframe>
+      </div>
       <article class="guitarra"><!-- guitarra 1 -->
-        <img class="derecha" src="images/invie-acustica.png" alt="Guitarra Invie acustica" width="350"/>
+        <img class="derecha" data-src="images/invie-acustica.png" alt="Guitarra Invie acustica" width="350"/>
         <div class="contenedor-guitarra-a">
         <h3 class="title-b">Invie Acustica</h3>
         <ol>
@@ -50,7 +53,7 @@
       </div>
       </article>
       <article class="guitarra b"><!-- guitarra 2 -->
-        <img class="izquierda "src="images/invie-classic.png" alt="Guitarra Invie clasica" width="350"/>
+        <img class="izquierda " data-src="images/invie-classic.png" alt="Guitarra Invie clasica" width="350"/>
         <div class="contenedor-guitarra-b">
         <h3 class="title-b">Invie Clasic</h3>
         <ol>
@@ -64,7 +67,7 @@
       <footer class="footer">
         <div class="contenedor">
            <div class="contacto">
-           <img src="images/invie-white.png" alt="logotipo blanco">
+           <img data-src="images/invie-white.png" alt="logotipo blanco">
            <a href="tel:5557767661"><strong>Telefono</strong><span>57767661</span></a>
            <a href="mailto:contacto@invie.com"><strong>Email</strong><span>contacto@invie.com</span></a>
         </div>
@@ -104,13 +107,35 @@
             </div>
         </form>
       </footer>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js">
+      </script>
       <script type="text/javascript">
-      var $burguerButtom =document.getElementById('burguer-buttom');
-      var $menu =document.getElementById('menu');
-      $burguerButtom.addEventListener('touchstart',toggleMenu);
-      function toggleMenu() {
-        $menu.classList.toggle('active')
-      };
+        var consulta= window.matchMedia('(max-width:500px)');
+        consulta.addListener(mediaQuery);
+
+        var $burguerButtom = document.getElementById('burguer-buttom');
+        var $menu =document.getElementById('menu');
+        function toggleMenu() {
+          $menu.classList.toggle('active')
+        };
+
+        function mediaQuery() {
+          if (consulta.matches) {
+            console.log('se cumplio la condicion');
+            $burguerButtom.addEventListener('touchstart',toggleMenu);
+            }
+            else {
+              $burguerButtom.removeEventListener('touchstart',toggleMenu);
+              console.log('no se cumplio la condicion');
+            }
+          }
+          mediaQuery();
+
+          var bLazy = new Blazy({
+            selector:'img'
+    // options
+});
+
       </script>
   </body>
 </html>
